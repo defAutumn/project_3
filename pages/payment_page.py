@@ -7,16 +7,17 @@ from utilities.logger import Logger
 
 
 class PaymentPage(Base):
+
     def __init__(self, driver):
         super().__init__(driver)
         self.driver = driver
 
     # Locators
+
     FINISH_BUTTON = (By.XPATH, '//button[@id="finish"]')
 
-
-
     # Getters
+
     def get_finish_button(self):
         return WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(self.FINISH_BUTTON))
 

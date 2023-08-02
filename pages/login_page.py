@@ -17,12 +17,14 @@ class LoginPage(Base):
         self.driver = driver
 
     # Locators
+
     USERNAME = (By.XPATH, '//input[@id="user-name"]')
     PASSWORD = (By.XPATH, '//input[@id="password"]')
     BUTTON_LOGIN = (By.XPATH, '//*[@id="login-button"]')
     MAIN_WORD = (By.XPATH, '//span[@class="title"]')
 
     # Getters
+
     def get_username(self):
         return WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(self.USERNAME))
 
@@ -49,8 +51,8 @@ class LoginPage(Base):
         self.get_login_button().click()
         print('Click login button')
 
-
     # Methods
+
     def authorization(self):
         with allure.step('authorization'):
             Logger.add_start_step(method='authorization')
@@ -60,5 +62,5 @@ class LoginPage(Base):
             self.input_username(self.username)
             self.input_password(self.password)
             self.click_login_button()
-            self.assert_word(self.get_main_word(),'Products')
+            self.assert_word(self.get_main_word(), 'Products')
             Logger.add_end_step(self.driver.current_url, 'authorization')

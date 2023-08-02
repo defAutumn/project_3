@@ -7,20 +7,22 @@ from utilities.logger import Logger
 
 
 class MainPage(Base):
+
     def __init__(self, driver):
         super().__init__(driver)
         self.driver = driver
 
     # Locators
+
     SELECT_PRODUCT_1 = (By.XPATH, '//button[@id="add-to-cart-sauce-labs-backpack"]')
     SELECT_PRODUCT_2 = (By.XPATH, '//button[@id="add-to-cart-sauce-labs-bike-light"]')
     SELECT_PRODUCT_3 = (By.XPATH, '//button[@id="add-to-cart-sauce-labs-fleece-jacket"]')
-
     CART = (By.XPATH, '//div[@id="shopping_cart_container"]')
     BURGER_MENU = (By.XPATH, '//button[@id="react-burger-menu-btn"]')
     LINK_ABOUT = (By.XPATH, '//a[@id="about_sidebar_link"]')
 
     # Getters
+
     def get_product_1(self):
         return WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(self.SELECT_PRODUCT_1))
 
@@ -99,4 +101,3 @@ class MainPage(Base):
             self.click_link_about()
             self.assert_url('https://saucelabs.com/')
             Logger.add_end_step(self.driver.current_url, 'select_menu_about')
-

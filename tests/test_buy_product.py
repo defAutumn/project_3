@@ -1,9 +1,7 @@
-import pytest
 import allure
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service as ChromeService
-
 from pages.login_page import LoginPage
 from pages.main_page import MainPage
 from pages.cart_page import CartPage
@@ -75,5 +73,3 @@ def test_buy_product_1():
 #
 #     print('Success Test #3!!!')
 #     driver.quit()
-
-

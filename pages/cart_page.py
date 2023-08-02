@@ -12,14 +12,13 @@ class CartPage(Base):
         self.driver = driver
 
     # Locators
+
     CHECKOUT_BUTTON = (By.XPATH, '//button[@id="checkout"]')
 
-
     # Getters
+
     def get_checkout_button(self):
         return WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(self.CHECKOUT_BUTTON))
-
-
 
     # Actions
 
@@ -27,9 +26,8 @@ class CartPage(Base):
         self.get_checkout_button().click()
         print('Click checkout button')
 
-
-
     # Methods
+
     def product_confirmation(self):
         with allure.step('product_confirmation'):
             Logger.add_start_step(method='product_confirmation')

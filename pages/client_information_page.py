@@ -17,12 +17,14 @@ class ClientInformationPage(Base):
         self.driver = driver
 
     # Locators
+
     FIRST_NAME = (By.XPATH, '//input[@id="first-name"]')
     LAST_NAME = (By.XPATH, '//input[@id="last-name"]')
     ZIP_CODE = (By.XPATH, '//input[@id="postal-code"]')
     BUTTON_CONTINUE = (By.XPATH, '//input[@id="continue"]')
 
     # Getters
+
     def get_first_name(self):
         return WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(self.FIRST_NAME))
 
@@ -53,8 +55,8 @@ class ClientInformationPage(Base):
         self.get_continue_button().click()
         print('Click continue button')
 
-
     # Methods
+
     def input_information(self):
         with allure.step('input_inforamtion'):
             Logger.add_start_step(method='input_inforamtion')
@@ -63,5 +65,4 @@ class ClientInformationPage(Base):
             self.input_last_name(self.last_name)
             self.input_zip_code(self.postal_code)
             self.click_continue_button()
-            #self.assert_word(self.get_main_word(),'Products')
             Logger.add_end_step(self.driver.current_url, 'input_inforamtion')
