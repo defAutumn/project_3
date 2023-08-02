@@ -11,6 +11,9 @@ class MainPage(Base):
 
     # Locators
     SELECT_PRODUCT_1 = (By.XPATH, '//button[@id="add-to-cart-sauce-labs-backpack"]')
+    SELECT_PRODUCT_2 = (By.XPATH, '//button[@id="add-to-cart-sauce-labs-bike-light"]')
+    SELECT_PRODUCT_3 = (By.XPATH, '//button[@id="add-to-cart-sauce-labs-fleece-jacket"]')
+
     CART = (By.XPATH, '//div[@id="shopping_cart_container"]')
     BURGER_MENU = (By.XPATH, '//button[@id="react-burger-menu-btn"]')
     LINK_ABOUT = (By.XPATH, '//a[@id="about_sidebar_link"]')
@@ -18,6 +21,12 @@ class MainPage(Base):
     # Getters
     def get_product_1(self):
         return WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(self.SELECT_PRODUCT_1))
+
+    def get_product_2(self):
+        return WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(self.SELECT_PRODUCT_2))
+
+    def get_product_3(self):
+        return WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(self.SELECT_PRODUCT_3))
 
     def get_cart(self):
         return WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(self.CART))
@@ -28,13 +37,19 @@ class MainPage(Base):
     def get_link_about(self):
         return WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(self.LINK_ABOUT))
 
-
-
     # Actions
 
     def click_select_product_1(self):
         self.get_product_1().click()
         print('Click add product 1')
+
+    def click_select_product_2(self):
+        self.get_product_2().click()
+        print('Click add product 2')
+
+    def click_select_product_3(self):
+        self.get_product_3().click()
+        print('Click add product 3')
 
     def click_burger_menu(self):
         self.get_burger_menu().click()
@@ -48,11 +63,21 @@ class MainPage(Base):
         self.get_cart().click()
         print('Click cart')
 
-
     # Methods
-    def select_product(self):
+
+    def select_product_1(self):
         self.get_current_url()
         self.click_select_product_1()
+        self.click_cart()
+
+    def select_product_2(self):
+        self.get_current_url()
+        self.click_select_product_2()
+        self.click_cart()
+
+    def select_product_3(self):
+        self.get_current_url()
+        self.click_select_product_3()
         self.click_cart()
 
     def select_menu_about(self):
