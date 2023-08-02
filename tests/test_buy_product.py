@@ -27,7 +27,7 @@ def test_buy_product_1(set_up):
     cp.product_confirmation()
 
     cip = ClientInformationPage(driver)
-    cip.input_inforamtion()
+    cip.input_information()
 
     pp = PaymentPage(driver)
     pp.click_finish_button()

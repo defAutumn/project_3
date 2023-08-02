@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from base.base_class import Base
+from utilities.logger import Logger
 
 
 class MainPage(Base):
@@ -10,7 +11,7 @@ class MainPage(Base):
         self.driver = driver
 
     # Locators
-    SELECT_PRODUCT_1 = (By.XPATH, '//button[@id="add-to-cart-sauce-labs-backpack"]')
+    SELECT_PRODUCT_1 = (By.XPATH, '//button[@id="add-to-cart-sauce-labs-backpac"]')
     SELECT_PRODUCT_2 = (By.XPATH, '//button[@id="add-to-cart-sauce-labs-bike-light"]')
     SELECT_PRODUCT_3 = (By.XPATH, '//button[@id="add-to-cart-sauce-labs-fleece-jacket"]')
 
@@ -66,23 +67,31 @@ class MainPage(Base):
     # Methods
 
     def select_product_1(self):
+        Logger.add_start_step(method='select_product_1')
         self.get_current_url()
         self.click_select_product_1()
         self.click_cart()
+        Logger.add_end_step(self.driver.current_url, 'select_product_1')
 
     def select_product_2(self):
+        Logger.add_start_step(method='select_product_2')
         self.get_current_url()
         self.click_select_product_2()
         self.click_cart()
+        Logger.add_end_step(self.driver.current_url, 'select_product_2')
 
     def select_product_3(self):
+        Logger.add_start_step(method='select_product_3')
         self.get_current_url()
         self.click_select_product_3()
         self.click_cart()
+        Logger.add_end_step(self.driver.current_url, 'select_product_3')
 
     def select_menu_about(self):
+        Logger.add_start_step(method='select_menu_about')
         self.get_current_url()
         self.click_burger_menu()
         self.click_link_about()
         self.assert_url('https://saucelabs.com/')
+        Logger.add_end_step(self.driver.current_url, 'select_menu_about')
 
