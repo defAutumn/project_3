@@ -12,7 +12,7 @@ from pages.finish_page import FinishPage
 
 
 
-def test_by_product():
+def test_link_about():
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
 
     print('Start test')
@@ -21,19 +21,7 @@ def test_by_product():
     login.authorization()
 
     mp = MainPage(driver)
-    mp.select_product()
-
-    cp = CartPage(driver)
-    cp.product_confirmation()
-
-    cip = ClientInformationPage(driver)
-    cip.input_inforamtion()
-
-    pp = PaymentPage(driver)
-    pp.click_finish_button()
-
-    fp = FinishPage(driver)
-    fp.finish()
+    mp.select_menu_about()
 
     print('Success Test!!!')
     driver.quit()
