@@ -7,6 +7,8 @@ from pages.login_page import LoginPage
 from pages.main_page import MainPage
 from pages.cart_page import CartPage
 from pages.client_information_page import ClientInformationPage
+from pages.payment_page import PaymentPage
+from pages.finish_page import FinishPage
 
 
 
@@ -26,6 +28,12 @@ def test_by_product():
 
     cip = ClientInformationPage(driver)
     cip.input_inforamtion()
+
+    pp = PaymentPage(driver)
+    pp.click_finish_button()
+
+    fp = FinishPage(driver)
+    fp.finish()
 
     print('Success Test!!!')
     driver.quit()
