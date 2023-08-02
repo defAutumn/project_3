@@ -1,4 +1,5 @@
 import pytest
+import allure
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service as ChromeService
@@ -12,7 +13,8 @@ from pages.finish_page import FinishPage
 
 
 # @pytest.mark.run(order=2)
-def test_buy_product_1(set_up):
+@allure.description('Test buy product 1')
+def test_buy_product_1():
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
 
     print('Start test #1')
@@ -56,7 +58,7 @@ def test_buy_product_1(set_up):
 #     print('Success Test #2!!!')
 #     driver.quit()
 #
-# @pytest.mark.run(order=1)
+# # @pytest.mark.run(order=1)
 # def test_buy_product_3():
 #     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
 #
